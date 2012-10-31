@@ -111,6 +111,18 @@ configure : configure-stamp
 build     : build-stamp
 install   : install-stamp
 
+help:
+	@echo CIBS Usage: make [target]
+	@echo Available Targets:
+	@echo 	
+	@echo unpack - put sources into the source directory, ./work/source by default
+	@echo patch - modify sources
+	@echo configure - configure sources, e. g. execute GNU configure or CMake
+	@echo build - build sources, e. g. compile with C compiler, etc
+	@echo install - install files into proto directory.
+	@echo clean - remove all stamps and working directory, ./work by default
+	@echo
+
 # clean is special and can be extended in Makefile:
 clean :: 
 	rm -f *-stamp
