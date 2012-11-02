@@ -3,7 +3,7 @@ include /usr/share/cibs/rules/archive.mk
 include /usr/share/cibs/rules/autotools.mk
 include /usr/share/cibs/rules/32.mk
 
-summary := YAJL is a small event-driven JSON parser written in ANSI C
+summary := GNU patch
 license := GPL
 license-file := COPYING
 
