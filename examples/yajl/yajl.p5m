@@ -1,0 +1,29 @@
+
+set name=pkg.fmri value=pkg:/library/$(name)@$(ips-version)
+set name=pkg.summary value="$(summary)"
+set name=info.upstream-url value="$(home)"
+set name=info.source_url value="$(download)"
+license $(license-file)  license="$(license)"
+
+dir path=usr
+dir path=usr/lib
+file path=usr/lib/libyajl.so.2.1.0
+file path=usr/lib/libyajl_s.a
+file path=usr/lib/libyajl.so
+file path=usr/lib/libyajl.so.2
+
+dir path=usr/share
+dir path=usr/share/pkgconfig
+file path=usr/share/pkgconfig/yajl.pc
+
+dir path=usr/bin
+file path=usr/bin/json_reformat
+file path=usr/bin/json_verify
+
+dir path=usr/include
+dir path=usr/include/yajl
+file path=usr/include/yajl/yajl_tree.h
+file path=usr/include/yajl/yajl_parse.h
+file path=usr/include/yajl/yajl_gen.h
+file path=usr/include/yajl/yajl_common.h
+file path=usr/include/yajl/yajl_version.h
