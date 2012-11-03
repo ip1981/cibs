@@ -26,19 +26,16 @@ ifeq (,$(__patch_mk))
 
 patchdir = $(CURDIR)/patches
 patches = $(shell [ -d "$(patchdir)" ] && cd "$(patchdir)" && ls -1 | sort)
+quilt := /usr/share/cibs/scripts/quilt
 
-# Try different path levels:
-applied-%-stamp: $(patchdir)/% unpack-stamp check-build-dep-stamp
-	cd "$(sourcedir)" && \
-		patch -p1 -t < $< || \
-		patch -p0 -t < $< || \
-		patch -p2 -t < $<
+patch-stamp: unpack-stamp check-build-dep-stamp
+	cd "$(sourcedir)" && $(quilt) push -a
 	touch $@
 
-
-patch-stamp: $(patches:%=applied-%-stamp)
-
 pre-configure-stamp: patch-stamp	
+
+quilt-%:
+	$(quilt) $* $(args)
 
 __patch_mk := included
 endif

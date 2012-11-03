@@ -1,0 +1,25 @@
+
+set name=pkg.fmri value=pkg:/text/gnu/$(name)@$(ips-version)
+set name=pkg.summary value="$(summary)"
+set name=info.upstream-url value="$(home)"
+set name=info.source_url value="$(download)"
+license $(license-file)  license="$(license)"
+
+dir path=usr
+dir path=usr/bin
+dir path=usr/gnu
+dir path=usr/gnu/bin
+dir path=usr/gnu/share
+dir path=usr/gnu/share/man
+dir path=usr/gnu/share/man/man1
+dir path=usr/share
+dir path=usr/share/man
+dir path=usr/share/man/man1
+file path=usr/gnu/bin/patch
+file path=usr/gnu/share/man/man1/patch.1
+link path=usr/bin/patch target=../gnu/bin/patch
+link path=usr/bin/gpatch target=../gnu/bin/patch facet.compat.gnulinks=true
+link path=usr/share/man/man1/patch.1 \
+    target=../../../gnu/share/man/man1/patch.1
+link path=usr/share/man/man1/gpatch.1 \
+    target=../../../gnu/share/man/man1/patch.1 facet.compat.gnulinks=true
