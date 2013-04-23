@@ -51,7 +51,7 @@ deb-stamp: pre-deb
 		-S "$(name)" \
 		-O "$(debsdir)" \
 		$(pkg-define) \
-		$(pkg-protos) \
+		-d . $(protodirs:%=-d %) \
 		$(depend-manifests) \
 
 	touch $@
